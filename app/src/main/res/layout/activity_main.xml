@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+    </data>
+
+
+        <androidx.drawerlayout.widget.DrawerLayout
+            android:id="@+id/drawerLayout"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:fitsSystemWindows="true">
+
+            <fragment
+                android:id="@+id/myNavHostFragment"
+                android:name="androidx.navigation.fragment.NavHostFragment"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                app:defaultNavHost="true"
+                app:navGraph="@navigation/navigation" />
+
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+                <TextView
+                    android:id="@+id/blackScrim"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="#66000000"
+                    android:alpha="0.0"/>
+                <TextView
+                    android:id="@+id/whiteScrim"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:background="#ffffff"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <com.airbnb.lottie.LottieAnimationView
+                    android:id="@+id/menu_icon"
+                    android:layout_width="80dp"
+                    android:layout_marginTop="-4dp"
+                    android:layout_marginStart="8dp"
+                    android:layout_height="70dp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:lottie_rawRes="@raw/menu_icon" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <com.google.android.material.navigation.NavigationView
+                android:id="@+id/navView"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_gravity="start"
+                android:background = "#00000000"
+                android:layout_marginTop="80dp"
+                app:menu="@menu/main_menu" />
+        </androidx.drawerlayout.widget.DrawerLayout>
+
+</layout>

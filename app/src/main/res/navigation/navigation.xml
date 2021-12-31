@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+             xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/navigation"
+    app:startDestination="@+id/timerFragment">
+
+    <fragment
+        android:id="@+id/timerFragment"
+        android:name="com.example.improveyourplank_app.timer.TimerFragment"
+        android:label="TimerFragment"
+        tools:layout="@layout/fragment_timer">
+        <action
+            android:id="@+id/action_timerFragment_to_workoutFeedbackFragment"
+            app:destination="@id/workoutFeedbackFragment" />
+        <action
+            android:id="@+id/action_timerFragment_to_workoutsTrackerFragment"
+            app:destination="@id/workoutsTrackerFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/workoutsTrackerFragment"
+        android:name="com.example.improveyourplank_app.workoutstracker.WorkoutsTrackerFragment"
+        android:label="WorkoutsTrackerFragment"
+        tools:layout="@layout/fragment_workouts_tracker">
+
+        <action
+            android:id="@+id/action_workoutsTrackerFragment_to_timerFragment"
+            app:destination="@id/timerFragment"
+            app:popUpToInclusive="false" />
+    </fragment>
+    <fragment
+        android:id="@+id/workoutFeedbackFragment"
+        android:name="com.example.improveyourplank_app.workoutfeedback.WorkoutFeedbackFragment"
+        android:label="WorkoutFeedbackFragment"
+        tools:layout="@layout/fragment_workout_feedback">
+        <argument
+            android:name="workoutKey"
+            app:argType="long" />
+        <action
+            android:id="@+id/action_workoutFeedbackFragment_to_timerFragment"
+            app:destination="@id/timerFragment"
+            app:popUpToInclusive="false" />
+        <action
+            android:id="@+id/action_workoutFeedbackFragment_to_workoutsTrackerFragment"
+            app:destination="@id/workoutsTrackerFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/calendarFragment"
+        android:name="com.example.improveyourplank_app.calendar.CalendarFragment"
+        android:label="CalendarFragment"
+        tools:layout="@layout/fragment_calendar"/>
+    <fragment
+        android:id="@+id/statisticsFragment"
+        android:name="com.example.improveyourplank_app.statistics.StatisticsFragment"
+        android:label="StatisticsFragment"
+        tools:layout="@layout/fragment_statistics"/>
+    <fragment
+        android:id="@+id/tutorialsFragment"
+        android:name="com.example.improveyourplank_app.tutorials.TutorialsFragment"
+        android:label="TutorialsFragment"
+        tools:layout="@layout/fragment_tutorials"/>
+</navigation>

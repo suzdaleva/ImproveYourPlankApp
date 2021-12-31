@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:id="@+id/dialog_layout"
+    android:background="@drawable/dialog_container">
+    <Button
+        android:id="@+id/dialogOkButton"
+        style="@style/Widget.MaterialComponents.Button.TextButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="10dp"
+        android:backgroundTint="@color/secondaryColor"
+        android:gravity="bottom|end"
+        android:padding="0dp"
+        android:text="Ok"
+        android:textAllCaps="true"
+        android:textColor="@color/primaryColor"
+        android:textSize="17sp"
+        app:layout_constraintBottom_toBottomOf="@+id/dialog_layout"
+        app:layout_constraintEnd_toEndOf="@+id/dialogContainer" />
+
+    <Button
+        android:id="@+id/dialogCancelButton"
+        style="@style/Widget.MaterialComponents.Button.TextButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="-20dp"
+        android:layout_marginBottom="10dp"
+        android:backgroundTint="@color/secondaryColor"
+        android:gravity="bottom|end"
+        android:padding="0dp"
+        android:text="Cancel"
+        android:textAllCaps="true"
+        android:textColor="@color/primaryColor"
+        android:textSize="17sp"
+        app:layout_constraintBottom_toBottomOf="@+id/dialog_layout"
+        app:layout_constraintEnd_toStartOf="@+id/dialogOkButton" />
+
+
+    <ImageView
+        android:id="@+id/dialogContainer"
+        android:layout_width="280dp"
+        android:layout_height="0dp"
+        android:layout_marginStart="28dp"
+        android:layout_marginEnd="28dp"
+        android:layout_marginBottom="-8dp"
+        android:background="@drawable/input_background"
+        app:layout_constraintBottom_toBottomOf="@+id/inputBackground"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/inputBackground" />
+
+    <com.example.improveyourplank_app.timepicker.TimePickerView
+        android:id="@+id/inputBackground"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        app:layout_constraintBottom_toTopOf="@+id/dialogCancelButton"
+        app:layout_constraintEnd_toEndOf="@+id/dialog_layout"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/dialogHeader">
+
+        <ViewStub
+            android:id="@+id/textinputTimepicker"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="0dp"
+            android:layout_marginTop="0dp"
+            android:layout_marginBottom="0dp"
+            android:layout_marginEnd="0dp"
+            android:background="@color/inputBackground"
+            android:inflatedId="@+id/material_textinput_timepicker"
+            android:layout="@layout/material_textinput_timepicker"
+            app:layout_constraintBottom_toTopOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="parent" />
+
+    </com.example.improveyourplank_app.timepicker.TimePickerView>
+
+
+    <TextView
+        android:id="@+id/dialogHeader"
+        style="@style/TextTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="28dp"
+        android:layout_marginTop="24dp"
+        android:text="Your next goal is:"
+        android:textColor="@color/primaryColor"
+        android:textSize="25sp"
+        app:layout_constraintStart_toStartOf="@+id/dialog_layout"
+        app:layout_constraintTop_toTopOf="@+id/dialog_layout" />
+
+    <ImageView
+        android:id="@+id/dialogCloseButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="18dp"
+        app:layout_constraintBottom_toBottomOf="@+id/dialogHeader"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/dialogHeader"
+        app:layout_constraintVertical_bias="0.65"
+        app:srcCompat="@drawable/deny_small_button" />
+</androidx.constraintlayout.widget.ConstraintLayout>

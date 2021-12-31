@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="DesignSurface">
+    <option name="filePathToZoomLevelMap">
+      <map>
+        <entry key="..\:/Users/Anastasiya/AndroidStudioProjects/ImproveYourPlankApp/app/src/main/res/drawable-v24/ic_launcher_foreground.xml" value="0.14444444444444443" />
+        <entry key="..\:/Users/Anastasiya/AndroidStudioProjects/ImproveYourPlankApp/app/src/main/res/drawable/background_transparent.xml" value="0.1" />
+        <entry key="..\:/Users/Anastasiya/AndroidStudioProjects/ImproveYourPlankApp/app/src/main/res/drawable/black_swipe_background.xml" value="0.13952702702702702" />
+        <entry key="..\:/Users/Anastasiya/AndroidStudioProjects/ImproveYourPlankApp/app/src/main/res/drawable/blur_circle.xml" value="0.14635416666666667" />
+        <entry key="..\:/Users/Anastasiya/AndroidStudioProjects/ImproveYourPlankApp/app/src/main/res/drawable/checked_circle.xml" value="0.2703125" />
+        <entry key="..\:/Users/Anastasiya/AndroidStudioProjects/ImproveYourPlankApp/app/src/main/res/drawable/checked_day.xml" value="0.17533783783783785" />
+        <entry key="..\:/Users/Anastasiya/AndroidStudioProjects/ImproveYourPlankApp/app/src/main/res/drawable/delete_icon.xml" value="0.17533783783783785" />
+        <entry key="..\:/Users/Anastasiya/AndroidStudioProjects/ImproveYourPlankApp/app/src/main/res/drawable/deny_small_button.xml" value="0.11114864864864865" />
+        <entry key="..\:/Users/Anastasiya/AndroidStudioProjects/ImproveYourPlankApp/app/src/main/res/drawable/dialog_container.xml" value="0.16458333333333333" />
+        <entry key="..\:/Users/Anastasiya/AndroidStudioProjects/ImproveYourPlankApp/app/src/main/res/drawable/edit_icon.xml" value="0.17533783783783785" />
+        <entry key="..\:/Users/Anastasiya/AndroidStudioProjects/ImproveYourPlankApp/app/src/main/res/drawable/fab_add_new.xml" value="0.1" />
+        <entry key="..\:/Users/Anastasiya/AndroidStudioProjects/ImproveYourPlankApp/app/src/main/res/drawable/fab_delete.xml" value="0.14290540540540542" />
+        <entry key="..\:/Users/Anastasiya/AndroidStudioProjects/ImproveYourPlankApp/app/src/main/res/drawable/fab_edit.xml" value="0.14290540540540542" />
+        <entry key="..\:/Users/Anastasiya/AndroidStudioProjects/ImproveYourPlankApp/app/src/main/res/drawable/fab_plus.xml" value="0.2703125" />
+        <entry key="..\:/Users/Anastasiya/AndroidStudioProjects/ImproveYourPlankApp/app/src/main/res/drawable/fab_save.xml" value="0.14290540540540542" />
+        <entry key="..\:/Users/Anastasiya/AndroidStudioProjects/ImproveYourPlankApp/app/src/main/res/drawable/ic_launcher_background.xml" value="0.14444444444444443" />
+        <entry key="..\:/Users/Anastasiya/AndroidStudioProjects/ImproveYourPlankApp/app/src/main/res/drawable/icon.xml" value="0.1423611111111111" />
+        <entry key="..\:/Users/Anastasiya/AndroidStudioProjects/ImproveYourPlankApp/app/src/main/res/drawable/input_background.xml" value="0.17533783783783785" />
+        <entry key="..\:/Users/Anastasiya/AndroidStudioProjects/ImproveYourPlankApp/app/src/main/res/drawable/launcher_background.xml" value="0.17533783783783785" />
+        <entry key="..\:/Users/Anastasiya/AndroidStudioProjects/ImproveYourPlankApp/app/src/main/res/drawable/material_cursor_drawable.xml" value="0.16458333333333333" />
+        <entry key="..\:/Users/Anastasiya/AndroidStudioProjects/ImproveYourPlankApp/app/src/main/res/drawable/test.xml" value="0.1652027027027027" />
+        <entry key="..\:/Users/Anastasiya/AndroidStudioProjects/ImproveYourPlankApp/app/src/main/res/drawable/timer_circle.xml" value="0.2703125" />
+        <entry key="..\:/Users/Anastasiya/AndroidStudioProjects/ImproveYourPlankApp/app/src/main/res/drawable/today_circle.xml" value="0.17533783783783785" />
+        <entry key="..\:/Users/Anastasiya/AndroidStudioProjects/ImproveYourPlankApp/app/src/main/res/drawable/toolbar_bg.xml" value="0.17533783783783785" />
+        <entry key="..\:/Users/Anastasiya/AndroidStudioProjects/ImproveYourPlankApp/app/src/main/res/drawable/unchecked_circle.xml" value="0.1921875" />
+        <entry key="..\:/Users/Anastasiya/AndroidStudioProjects/ImproveYourPlankApp/app/src/main/res/layout/activity_main.xml" value="0.1" />
+        <entry key="..\:/Users/Anastasiya/AndroidStudioProjects/ImproveYourPlankApp/app/src/main/res/layout/day_view.xml" value="0.16486486486486487" />
+        <entry key="..\:/Users/Anastasiya/AndroidStudioProjects/ImproveYourPlankApp/app/src/main/res/layout/fragment_calendar.xml" value="0.1" />
+        <entry key="..\:/Users/Anastasiya/AndroidStudioProjects/ImproveYourPlankApp/app/src/main/res/layout/fragment_statistics.xml" value="0.16486486486486487" />
+        <entry key="..\:/Users/Anastasiya/AndroidStudioProjects/ImproveYourPlankApp/app/src/main/res/layout/fragment_timer.xml" value="0.136" />
+        <entry key="..\:/Users/Anastasiya/AndroidStudioProjects/ImproveYourPlankApp/app/src/main/res/layout/fragment_tutorials.xml" value="0.1" />
+        <entry key="..\:/Users/Anastasiya/AndroidStudioProjects/ImproveYourPlankApp/app/src/main/res/layout/fragment_workout_feedback.xml" value="0.176" />
+        <entry key="..\:/Users/Anastasiya/AndroidStudioProjects/ImproveYourPlankApp/app/src/main/res/layout/fragment_workouts_tracker.xml" value="0.1" />
+        <entry key="..\:/Users/Anastasiya/AndroidStudioProjects/ImproveYourPlankApp/app/src/main/res/layout/fragments_workouts_tracker.xml" value="0.1368421052631579" />
+        <entry key="..\:/Users/Anastasiya/AndroidStudioProjects/ImproveYourPlankApp/app/src/main/res/layout/item_calendar.xml" value="0.1" />
+        <entry key="..\:/Users/Anastasiya/AndroidStudioProjects/ImproveYourPlankApp/app/src/main/res/layout/list_item_workout.xml" value="0.264" />
+        <entry key="..\:/Users/Anastasiya/AndroidStudioProjects/ImproveYourPlankApp/app/src/main/res/layout/material_chip_input_combo.xml" value="0.25416666666666665" />
+        <entry key="..\:/Users/Anastasiya/AndroidStudioProjects/ImproveYourPlankApp/app/src/main/res/layout/material_clock_display.xml" value="0.1484375" />
+        <entry key="..\:/Users/Anastasiya/AndroidStudioProjects/ImproveYourPlankApp/app/src/main/res/layout/material_clock_display_divider.xml" value="0.1484375" />
+        <entry key="..\:/Users/Anastasiya/AndroidStudioProjects/ImproveYourPlankApp/app/src/main/res/layout/material_clock_period_toggle.xml" value="0.1484375" />
+        <entry key="..\:/Users/Anastasiya/AndroidStudioProjects/ImproveYourPlankApp/app/src/main/res/layout/material_clockface_textview.xml" value="0.1484375" />
+        <entry key="..\:/Users/Anastasiya/AndroidStudioProjects/ImproveYourPlankApp/app/src/main/res/layout/material_clockface_view.xml" value="0.1484375" />
+        <entry key="..\:/Users/Anastasiya/AndroidStudioProjects/ImproveYourPlankApp/app/src/main/res/layout/material_radial_view_group.xml" value="0.1484375" />
+        <entry key="..\:/Users/Anastasiya/AndroidStudioProjects/ImproveYourPlankApp/app/src/main/res/layout/material_textinput_timepicker.xml" value="0.25416666666666665" />
+        <entry key="..\:/Users/Anastasiya/AndroidStudioProjects/ImproveYourPlankApp/app/src/main/res/layout/material_time_chip.xml" value="0.1484375" />
+        <entry key="..\:/Users/Anastasiya/AndroidStudioProjects/ImproveYourPlankApp/app/src/main/res/layout/material_time_input.xml" value="0.12" />
+        <entry key="..\:/Users/Anastasiya/AndroidStudioProjects/ImproveYourPlankApp/app/src/main/res/layout/material_timepicker.xml" value="0.1484375" />
+        <entry key="..\:/Users/Anastasiya/AndroidStudioProjects/ImproveYourPlankApp/app/src/main/res/layout/material_timepicker_dialog.xml" value="0.25416666666666665" />
+        <entry key="..\:/Users/Anastasiya/AndroidStudioProjects/ImproveYourPlankApp/app/src/main/res/layout/material_timepicker_textinput_display.xml" value="0.25416666666666665" />
+        <entry key="..\:/Users/Anastasiya/AndroidStudioProjects/ImproveYourPlankApp/app/src/main/res/layout/target_time_setter.xml" value="0.225" />
+        <entry key="..\:/Users/Anastasiya/AndroidStudioProjects/ImproveYourPlankApp/app/src/main/res/layout/time_picker_dialog.xml" value="0.2040133779264214" />
+        <entry key="..\:/Users/Anastasiya/AndroidStudioProjects/ImproveYourPlankApp/app/src/main/res/layout/timepicker_dialog.xml" value="0.2" />
+        <entry key="..\:/Users/Anastasiya/AndroidStudioProjects/ImproveYourPlankApp/app/src/main/res/layout/timer_fragment.xml" value="0.24295432458697766" />
+        <entry key="..\:/Users/Anastasiya/AndroidStudioProjects/ImproveYourPlankApp/app/src/main/res/menu/main_menu.xml" value="0.16486486486486487" />
+        <entry key="..\:/Users/Anastasiya/AndroidStudioProjects/ImproveYourPlankApp/app/src/main/res/mipmap-anydpi-v26/ic_launcher.xml" value="0.14444444444444443" />
+        <entry key="..\:/Users/Anastasiya/AndroidStudioProjects/ImproveYourPlankApp/app/src/main/res/mipmap-anydpi-v26/ic_launcher_round.xml" value="0.1" />
+        <entry key="..\:/Users/Anastasiya/AndroidStudioProjects/ImproveYourPlankApp/app/src/main/res/xml/fragment_workouts_tracker_scene.xml" value="0.10675675675675676" />
+      </map>
+    </option>
+  </component>
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_11" default="true" project-jdk-name="Android Studio default JDK" project-jdk-type="JavaSDK">
+    <output url="file://$PROJECT_DIR$/build/classes" />
+  </component>
+  <component name="ProjectType">
+    <option name="id" value="Android" />
+  </component>
+  <component name="VisualizationToolProject">
+    <option name="state">
+      <ProjectState>
+        <option name="scale" value="0.536" />
+      </ProjectState>
+    </option>
+  </component>
+</project>

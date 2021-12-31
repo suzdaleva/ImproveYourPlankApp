@@ -1,0 +1,142 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+
+
+<androidx.cardview.widget.CardView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/card_calendar"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    app:cardCornerRadius="9dp"
+    app:cardElevation="20dp"
+    android:layout_marginTop="200dp"
+    android:layout_gravity="bottom"
+    app:layout_constraintBottom_toBottomOf="parent"
+    app:layout_constraintEnd_toEndOf="parent"
+    app:layout_constraintStart_toStartOf="parent"
+    app:layout_constraintTop_toTopOf="parent">
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:minHeight="430dp"
+        android:layout_height="wrap_content">
+
+
+        <LinearLayout
+            android:id="@+id/abbreviationsBar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="12dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginEnd="12dp"
+            android:orientation="horizontal"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <TextView
+                android:id="@+id/mondayLabel"
+                style="@style/SemiBoldText"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="center_horizontal"
+                android:text="@string/first_day" />
+
+            <TextView
+                android:id="@+id/tuesdayLabel"
+                style="@style/SemiBoldText"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="center_horizontal"
+                android:text="@string/second_day" />
+
+            <TextView
+                android:id="@+id/wednesdayLabel"
+                style="@style/SemiBoldText"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="center_horizontal"
+                android:text="@string/third_day" />
+
+            <TextView
+                android:id="@+id/thursdayLabel"
+                style="@style/SemiBoldText"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="center_horizontal"
+                android:text="@string/fourth_day" />
+
+            <TextView
+                android:id="@+id/fridayLabel"
+                style="@style/SemiBoldText"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="center_horizontal"
+                android:text="@string/fifth_day" />
+
+            <TextView
+                android:id="@+id/saturdayLabel"
+                style="@style/SemiBoldText"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="center_horizontal"
+                android:text="@string/sixth_day" />
+
+            <TextView
+                android:id="@+id/sundayLabel"
+                style="@style/SemiBoldText"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="center_horizontal"
+                android:text="@string/seventh_day" />
+        </LinearLayout>
+
+
+        <TextView
+            android:id="@+id/month"
+            style="@style/MediumText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="17dp"
+            android:layout_marginTop="20dp"
+            tools:text="January"
+            app:layout_constraintStart_toStartOf="@+id/calendarGridView"
+            app:layout_constraintTop_toBottomOf="@+id/calendarGridView" />
+
+
+        <TextView
+            android:id="@+id/year"
+            style="@style/MediumText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:layout_marginEnd="17dp"
+            tools:text="2021"
+            app:layout_constraintEnd_toEndOf="@+id/calendarGridView"
+            app:layout_constraintTop_toBottomOf="@+id/calendarGridView" />
+
+        <com.myapp.annoteapp.extensions.CalendarGridView
+            android:id="@+id/calendarGridView"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_marginStart="15dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginEnd="15dp"
+            android:drawSelectorOnTop="true"
+            android:listSelector="@android:color/transparent"
+            android:numColumns="7"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/abbreviationsBar" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</androidx.cardview.widget.CardView>

@@ -1,0 +1,147 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:motion="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="workoutsTrackerViewModel"
+            type="com.example.improveyourplank_app.workoutstracker.WorkoutsTrackerViewModel" />
+
+    </data>
+
+    <androidx.coordinatorlayout.widget.CoordinatorLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".workoutstracker.WorkoutsTrackerViewModel">
+
+        <com.google.android.material.appbar.AppBarLayout
+            android:id="@+id/appBarLayout"
+            android:layout_width="match_parent"
+            android:layout_height="235dp"
+            android:background="@color/secondaryColor">
+
+            <androidx.constraintlayout.motion.widget.MotionLayout
+                android:id="@+id/motion_layout"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:minHeight="120dp"
+                app:layoutDescription="@xml/fragment_workouts_tracker_scene"
+                motion:layout_scrollFlags="scroll|enterAlways|snap|exitUntilCollapsed">
+
+                <View
+                    android:id="@+id/workoutsBackground"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="@color/primaryDarkColor" />
+
+                <TextView
+                    android:id="@+id/workoutsTitle"
+                    style="@style/TextTitle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/your_workouts"
+                    android:textColor="@color/secondaryColor"
+                    tools:layout_editor_absoluteX="20dp"
+                    tools:layout_editor_absoluteY="70dp" />
+                <TextView
+                    android:id="@+id/workoutsSmallTitle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    style="@style/TextTitle"
+                    android:textSize="32sp"
+                    android:text="@string/your_workouts"
+                    android:textColor="@color/primaryColor" />
+
+                <TextView
+                    android:id="@+id/workoutsSubtitle"
+                    style="@style/TextSubtitle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/you_re_doing_pretty_great_keep_going"
+                    android:textColor="@color/secondaryColor" />
+            </androidx.constraintlayout.motion.widget.MotionLayout>
+
+        </com.google.android.material.appbar.AppBarLayout>
+
+
+        <com.mlsdev.animatedrv.AnimatedRecyclerView
+            android:id="@+id/workouts_list"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginTop="-50dp"
+            app:animationDuration="600"
+            app:layoutAnimation="@anim/layout_animation_from_bottom_scale"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+            app:layoutManagerOrientation="vertical"
+            app:layoutManagerReverse="false"
+            app:layoutManagerType="linear"
+            app:layout_behavior="@string/appbar_scrolling_view_behavior"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <View
+            android:id="@+id/trackerScrim"
+            style="@style/ScrimStyle" />
+
+        <TextView
+            android:id="@+id/fanAddNewText"
+            style="@style/TextButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom|center"
+            android:layout_marginEnd="200dp"
+            android:layout_marginBottom="39dp"
+            android:text="Add new"
+            android:textColor="@color/secondaryColor"
+            android:visibility="gone" />
+
+        <com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton
+            android:id="@+id/fabAddNew"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom|center"
+            android:layout_marginBottom="16dp"
+            android:onClick="@{()->workoutsTrackerViewModel.onClose()}"
+            android:visibility="gone"
+            app:icon="@drawable/fab_add_new"
+            app:iconSize="43dp" />
+
+
+        <TextView
+            android:id="@+id/fanDeleteAllText"
+            style="@style/TextButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom|center"
+            android:layout_marginEnd="222dp"
+            android:layout_marginBottom="39dp"
+            android:text="Delete all"
+            android:textColor="@color/secondaryColor"
+            android:visibility="gone" />
+
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:id="@+id/fabDeleteAll"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:visibility="gone"
+            app:rippleColor="#00000000"
+            app:fabCustomSize="66dp"
+            app:maxImageSize="120dp"
+            android:scaleType="fitCenter"
+            android:layout_gravity="bottom|center"
+            android:layout_marginBottom="16dp"/>
+
+        <com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton
+            android:id="@+id/fabMenu"
+            style="@style/FABLayoutCenter"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom|center"
+            android:layout_marginBottom="16dp"
+            app:icon="@drawable/fab_plus" />
+
+    </androidx.coordinatorlayout.widget.CoordinatorLayout>
+</layout>

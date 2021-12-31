@@ -1,0 +1,189 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <variable
+            name="workout"
+            type="com.example.improveyourplank_app.database.Workout" />
+        <variable
+            name="clickListener"
+            type="com.example.improveyourplank_app.workoutstracker.WorkoutFeedBackClickListener" />
+
+    </data>
+    <com.daimajia.swipe.SwipeLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:id="@+id/swipe"
+        app:leftEdgeSwipeOffset="0dp"
+        app:rightEdgeSwipeOffset="0dp"
+        android:layout_height="wrap_content">
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/bottom_wraper"
+            android:layout_width="200dp"
+            android:orientation="horizontal"
+            android:layout_height="match_parent">
+
+            <TextView
+                android:id="@+id/swipePlaceholder"
+                android:layout_width="200dp"
+                android:background="@drawable/black_swipe_background"
+                android:layout_height="120dp"
+                android:layout_marginEnd="20dp"
+                android:layout_marginBottom="18dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent"/>
+
+            <ImageView
+                android:id="@+id/Edit"
+                android:layout_width="44dp"
+                android:layout_height="50dp"
+                android:layout_marginStart="28dp"
+                android:layout_marginBottom="18dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:srcCompat="@drawable/edit_icon" />
+
+            <ImageView
+                android:id="@+id/Delete"
+                android:layout_width="44dp"
+                android:layout_height="50dp"
+                android:layout_marginEnd="48dp"
+                android:layout_marginBottom="18dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:srcCompat="@drawable/delete_icon" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:id="@+id/cardLayout"
+        android:layout_marginEnd="0dp"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+        <TextView
+            android:id="@+id/blackView"
+            android:layout_width="25dp"
+            android:layout_height="120dp"
+            app:layout_constraintStart_toEndOf="@+id/card"
+            android:visibility="invisible"
+            app:layout_constraintTop_toTopOf="parent"
+            android:layout_marginStart="-10dp"
+            android:background="@color/primaryColor" />
+
+        <com.google.android.material.card.MaterialCardView
+            android:layout_width="0dp"
+            android:layout_height="120dp"
+            android:id="@+id/card"
+            android:layout_marginBottom="18dp"
+            android:backgroundTint="@color/secondaryColor"
+            android:clickable="true"
+            android:focusable="true"
+            app:cardElevation="10dp"
+            android:layout_marginStart="10dp"
+            android:layout_marginEnd="10dp"
+            app:cardCornerRadius="9dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:strokeWidth="0dp">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:backgroundTint="@color/secondaryColor">
+
+                <TextView
+                    android:id="@+id/textView5"
+                    style="@style/TextSubtitle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="13dp"
+                    android:layout_marginTop="20dp"
+                    android:text="actual time:"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <TextView
+                    android:id="@+id/textView6"
+                    style="@style/TextTimeLarge"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintBaseline_toBaselineOf="@+id/textView10"
+                    app:layout_constraintStart_toStartOf="@+id/textView5"
+                    app:workoutTimeFormatted="@{workout}"
+                    tools:text="00:00" />
+
+                <TextView
+                    android:id="@+id/textView7"
+                    style="@style/TextTitle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="8dp"
+                    android:letterSpacing="0.04"
+                    android:textSize="19sp"
+                    app:layout_constraintBaseline_toBaselineOf="@+id/textView8"
+                    app:layout_constraintEnd_toStartOf="@+id/checkedCircle"
+                    app:targetTimeFormatted="@{workout}"
+                    tools:text="04:00" />
+
+                <TextView
+                    android:id="@+id/textView8"
+                    style="@style/TextSubtitle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="8dp"
+                    android:text="target time:"
+                    android:textSize="15sp"
+                    app:layout_constraintBaseline_toBaselineOf="@+id/textView5"
+                    app:layout_constraintEnd_toStartOf="@+id/textView7" />
+
+                <TextView
+                    android:id="@+id/textView9"
+                    style="@style/TextFeedbackLarge"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="6dp"
+                    android:text="don't even ask!"
+                    app:feedbackString="@{workout}"
+                    android:textSize="19sp"
+                    app:layout_constraintBottom_toTopOf="@+id/textView10"
+                    app:layout_constraintEnd_toEndOf="@+id/checkedCircle" />
+
+                <TextView
+                    android:id="@+id/textView10"
+                    style="@style/TextSubtitle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="20dp"
+                    android:letterSpacing="0.05"
+                    app:workoutDateString="@{workout}"
+                    tools:text="30.10.2021"
+                    android:textSize="16sp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="@+id/textView9" />
+
+                <ImageView
+                    android:id="@+id/checkedCircle"
+                    android:layout_width="19dp"
+                    android:layout_height="19dp"
+                    android:layout_marginTop="20dp"
+                    android:layout_marginEnd="13dp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:checkedStatus="@{workout}"
+                    tools:srcCompat="@drawable/checked_circle" />
+ />
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+        </com.google.android.material.card.MaterialCardView>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+    </com.daimajia.swipe.SwipeLayout>
+</layout>

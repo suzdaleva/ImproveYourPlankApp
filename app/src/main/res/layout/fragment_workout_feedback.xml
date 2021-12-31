@@ -1,0 +1,292 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <data>
+        <variable
+            name="workoutFeedbackViewModel"
+            type="com.example.improveyourplank_app.workoutfeedback.WorkoutFeedbackViewModel" />
+
+    </data>
+    <androidx.coordinatorlayout.widget.CoordinatorLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".workoutfeedback.WorkoutFeedbackFragment">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/constraintLayout"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            app:layout_anchorGravity="center">
+
+            <com.airbnb.lottie.LottieAnimationView
+                android:id="@+id/tape_animation"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="32dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/textTitleHow"
+                app:lottie_autoPlay="true"
+                app:lottie_loop="true"
+                app:lottie_rawRes="@raw/choose_tape"
+                app:lottie_speed="0.3" />
+
+            <com.airbnb.lottie.LottieAnimationView
+                android:id="@+id/dont_ask"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="10dp"
+                app:layout_constraintBottom_toTopOf="@+id/exhausted"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/workoutTimeText"
+                app:layout_constraintTop_toBottomOf="@+id/workoutTimeText"
+                app:layout_constraintVertical_chainStyle="spread_inside"
+                app:lottie_rawRes="@raw/dontask"
+                app:lottie_repeatMode="reverse"
+                app:lottie_speed="2" />
+
+            <com.airbnb.lottie.LottieAnimationView
+                android:id="@+id/exhausted"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                app:lottie_speed="2"
+                app:lottie_repeatMode="reverse"
+                android:layout_marginStart="47dp"
+                app:layout_constraintBottom_toTopOf="@+id/so_so"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="@+id/dont_ask"
+                app:layout_constraintTop_toBottomOf="@+id/dont_ask"
+                app:lottie_rawRes="@raw/exhausted" />
+
+            <com.airbnb.lottie.LottieAnimationView
+                android:id="@+id/so_so"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="51dp"
+                app:lottie_speed="2"
+                app:layout_constraintBottom_toTopOf="@+id/pretty_good"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="@+id/exhausted"
+                app:layout_constraintTop_toBottomOf="@+id/exhausted"
+                app:lottie_rawRes="@raw/so_so"
+                app:lottie_repeatMode="reverse" />
+
+            <com.airbnb.lottie.LottieAnimationView
+                android:id="@+id/pretty_good"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="26dp"
+                app:layout_constraintBottom_toTopOf="@+id/feeling_great"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="@+id/dont_ask"
+                app:layout_constraintTop_toBottomOf="@+id/so_so"
+                app:lottie_rawRes="@raw/pretty_good"
+                app:lottie_repeatMode="reverse"
+                app:lottie_speed="2" />
+
+
+            <com.airbnb.lottie.LottieAnimationView
+                android:id="@+id/feeling_great"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="10dp"
+                android:layout_marginBottom="20dp"
+                app:layout_constraintBottom_toBottomOf="@+id/feedbackValue"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="@+id/dont_ask"
+                app:layout_constraintTop_toBottomOf="@+id/pretty_good"
+                app:lottie_rawRes="@raw/feeling_great"
+                app:lottie_repeatMode="reverse"
+                app:lottie_speed="2" />
+
+            <TextView
+                android:id="@+id/textTitleHow"
+                style="@style/TextTitle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="90dp"
+                android:text="How you feelin'"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+
+            <TextView
+                android:id="@+id/targetTimeText"
+                style="@style/TextSubtitle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="15dp"
+                android:text="Your goal was:"
+                app:layout_constraintBottom_toTopOf="@id/targetTimeValue"
+                app:layout_constraintStart_toStartOf="@id/workoutTimeValue"
+                app:layout_constraintTop_toBottomOf="@id/workoutTimeValue" />
+
+            <TextView
+                android:id="@+id/workoutTimeValue"
+                style="@style/TextTimeLarge"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="-8dp"
+                app:layout_constraintBottom_toTopOf="@id/targetTimeText"
+                app:layout_constraintStart_toStartOf="@id/workoutTimeText"
+                app:layout_constraintTop_toBottomOf="@id/workoutTimeText"
+                app:workoutTimeFormatted="@{workoutFeedbackViewModel.workout}"
+                tools:text="01:00" />
+
+            <TextView
+                android:id="@+id/feedbackTextBlock1"
+                style="@style/TextSubtitle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="25dp"
+                android:text="And you’re feelin’:"
+                app:layout_constraintBottom_toTopOf="@id/feedbackValue"
+                app:layout_constraintStart_toStartOf="@id/targetTimeValue"
+                app:layout_constraintTop_toBottomOf="@id/targetTimeValue" />
+
+            <TextView
+                android:id="@+id/feedbackValue"
+                style="@style/TextFeedbackLarge"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:feedbackString="@{workoutFeedbackViewModel.workout}"
+                app:fontFamily="@font/urbanist_blackitalic"
+                app:layout_constraintBottom_toTopOf="@id/feedbackTextBlock2"
+                app:layout_constraintStart_toStartOf="@id/feedbackTextBlock1"
+                app:layout_constraintTop_toBottomOf="@id/feedbackTextBlock1"
+                tools:text="@string/feeling_great" />
+
+            <TextView
+                android:id="@+id/feedbackTextBlock2"
+                style="@style/TextSubtitle"
+                android:layout_width="353dp"
+                android:layout_height="51dp"
+                android:layout_marginEnd="25dp"
+                android:layout_marginBottom="35dp"
+                android:text="which is awesome and you’d better keep going, buddy!"
+                app:layout_constraintBottom_toTopOf="@id/toWorkoutsButton"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="@id/feedbackValue"
+                app:layout_constraintTop_toBottomOf="@id/feedbackValue" />
+
+            <TextView
+                android:id="@+id/workoutTimeText"
+                style="@style/TextSubtitle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="32dp"
+                android:text="Today your time is:"
+                app:layout_constraintBottom_toTopOf="@id/workoutTimeValue"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/tape_animation"
+                app:layout_constraintVertical_chainStyle="spread_inside" />
+
+
+            <TextView
+                android:id="@+id/targetTimeValue"
+                style="@style/TextTimeLarge"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="-8dp"
+                app:layout_constraintBottom_toTopOf="@id/feedbackTextBlock1"
+                app:layout_constraintStart_toStartOf="@id/targetTimeText"
+                app:layout_constraintTop_toBottomOf="@id/targetTimeText"
+                app:targetTimeFormatted="@{workoutFeedbackViewModel.workout}"
+                tools:text="05:00" />
+
+            <Button
+                android:id="@+id/toWorkoutsButton"
+                style="@style/TextButton"
+                android:layout_width="wrap_content"
+                android:layout_height="55dp"
+                android:layout_marginBottom="33dp"
+                android:elevation="10dp"
+                android:onClick="@{() -> workoutFeedbackViewModel.onNavigateToWorkoutsTracker()}"
+                android:text="to sessions"
+                android:textColor="@color/secondaryColor"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="@id/feedbackTextBlock2" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+        <View
+            android:id="@+id/feedbackScrim"
+            style="@style/ScrimStyle" />
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/fabSave"
+            android:visibility="gone"
+            style="@style/FABLayoutEnd">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Save"
+                style="@style/TextButton"
+                android:layout_marginEnd="18dp"
+                android:textColor="@color/secondaryColor"/>
+            <com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:icon="@drawable/fab_save"
+                android:onClick="@{() -> workoutFeedbackViewModel.onSave()}"
+                app:iconSize="43dp" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/fabDelete"
+            android:visibility="gone"
+            style="@style/FABLayoutEnd">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Delete"
+            style="@style/TextButton"
+            android:layout_marginEnd="18dp"
+            android:textColor="@color/secondaryColor"/>
+
+        <com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:onClick="@{() -> workoutFeedbackViewModel.onDeleteWorkout()}"
+            app:icon="@drawable/fab_delete"/>
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/fabRedo"
+            android:visibility="gone"
+            style="@style/FABLayoutEnd">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Redo"
+            style="@style/TextButton"
+            android:layout_marginEnd="18dp"
+            android:textColor="@color/secondaryColor"/>
+
+        <com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton
+
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:onClick="@{() -> workoutFeedbackViewModel.onRedo()}"
+            app:icon="@drawable/fab_redo"/>
+        </LinearLayout>
+
+        <com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton
+            android:id="@+id/fabMenu"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            style="@style/FABLayoutEnd"
+            app:icon="@drawable/fab_plus"/>
+
+    </androidx.coordinatorlayout.widget.CoordinatorLayout>
+
+</layout>

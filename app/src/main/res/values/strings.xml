@@ -1,0 +1,28 @@
+<resources>
+    <string name="app_name">ImproveYourPlank-App</string>
+    <string name="let_s_start">Let\'s Start</string>
+    <string name="stop">Stop</string>
+    <string name="set_goal">Set Goal</string>
+    <string name="target_time">target time:</string>
+    <string name="dont_even_ask">don\'t even ask!</string>
+    <string name="exhausted">exhausted!</string>
+    <string name="so_so">S0-S0!</string>
+    <string name="pretty_good">pretty good!</string>
+    <string name="feeling_great">feeling great!</string>
+    <string name="not_sure_yet">not sure yet...</string>
+    <string name="material_clock_display_divider" translatable="false">:</string>
+    <string name="material_second_selection" description="Description for button to switch to select the second [CHAR_LIMIT=NONE]">Select seconds</string>
+    <string name="material_minute_selection" description="Description for button to switch to select the minute [CHAR_LIMIT=NONE]">Select minutes</string>
+    <string name="your_workouts">Your Sessions</string>
+    <string name="you_re_doing_pretty_great_keep_going">You’re doing pretty great! Keep going!</string>
+    <string name="calendar">Calendar</string>
+    <string name="first_day">M</string>
+    <string name="second_day">T</string>
+    <string name="third_day">W</string>
+    <string name="fourth_day">T</string>
+    <string name="fifth_day">F</string>
+    <string name="sixth_day">S</string>
+    <string name="seventh_day">S</string>
+    <string name="choose_where_to_go">Choose where to go</string>
+    <string name="go">Go</string>
+</resources>
