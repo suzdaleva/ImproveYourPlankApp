@@ -114,12 +114,6 @@ class WorkoutsTrackerFragment : Fragment() {
             //Log.i("I/Improve", "Delete is clickable")
             closeFABMenu()}
         }
-        lifecycleScope.launch {
-            val list = dataSource.getAllWorkouts()
-            for(element in list) {
-                Log.i("Test", "${element.workoutDate.with(LocalTime.MIDNIGHT)}")
-            }
-        }
         //fabDeleteAll.scaleType = ImageView.ScaleType.FIT_CENTER
         fabDeleteAll.setImageDrawable(lottieDrawable)
         //fabDeleteAll.setScaleType(ImageView.ScaleType.FIT_CENTER)

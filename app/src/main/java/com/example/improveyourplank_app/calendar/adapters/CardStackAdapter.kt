@@ -25,10 +25,6 @@ class CardStackAdapter(
 
     private var pageMonth = 0
 
-    private var _navigateToNote = MutableLiveData<Calendar?>()
-    val navigateToNote: LiveData<Calendar?>
-        get() = _navigateToNote
-
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         val inflater = LayoutInflater.from(parent.context)
         val view = inflater.inflate(R.layout.item_calendar, parent, false)
@@ -66,19 +62,9 @@ class CardStackAdapter(
 
         holder.itemView.alpha = 0.0f
 
-//        calendarDayAdapter.daySelectedListener = object : DayAdapter.DaySelectedListener {
-//            override fun onDaySelected(day: Calendar) {
-//                if(holder.itemView.alpha == 1.0f) {
-//                    _navigateToNote.value = day.setMidnight()
-//                    doneNavigating()}
-//            }
-//        }
         holder.calendarGridView.adapter = calendarDayAdapter
     }
 
-    fun doneNavigating() {
-        _navigateToNote.value = null
-    }
 
     override fun getItemCount(): Int {
         return CALENDAR_SIZE

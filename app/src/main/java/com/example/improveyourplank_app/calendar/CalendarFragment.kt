@@ -19,9 +19,6 @@ import com.example.improveyourplank_app.MainActivity
 import com.example.improveyourplank_app.R
 import com.example.improveyourplank_app.calendar.adapters.CardStackAdapter
 import com.example.improveyourplank_app.databinding.FragmentCalendarBinding
-import com.myapp.annoteapp.database.Note
-import com.myapp.annoteapp.database.NoteDatabase
-import com.myapp.annoteapp.database.NoteDatabaseDao
 import com.myapp.annoteapp.extensions.CalendarGridView
 import com.myapp.annoteapp.models.SharedViewModel
 import com.myapp.annoteapp.utils.CalendarProperties
@@ -32,7 +29,6 @@ class CalendarFragment : Fragment(), CardStackListener {
 
     private val sharedViewModel: SharedViewModel by activityViewModels()
     private lateinit var cardStackView: CardStackView
-    private lateinit var database: NoteDatabaseDao
     private lateinit var manager: CardStackLayoutManager
     private val adapter by lazy {
         CardStackAdapter(
@@ -51,30 +47,7 @@ class CalendarFragment : Fragment(), CardStackListener {
         manager = CardStackLayoutManager(context, this)
         val binding: FragmentCalendarBinding =
             DataBindingUtil.inflate(inflater, R.layout.fragment_calendar, container, false)
-        val application = requireNotNull(this.activity).application
-        database = NoteDatabase.getInstance(application).noteDatabaseDao
         binding.lifecycleOwner = viewLifecycleOwner
-//        adapter.navigateToNote.observe(viewLifecycleOwner, Observer { day ->
-//            sharedViewModel.setCurrentPosition(manager.topPosition)
-//            day?.let {
-//                lifecycleScope.launch {
-//                    if (!exists(day)) {
-//                        val note = Note()
-//                        note.date = day
-//                        insert(note)
-//                        findNavController().navigate(
-//                            CalendarFragmentDirections
-//                                .actionCalendarFragmentToNoteFragment(database.getThisNote()!!.noteId)
-//                        )
-//                    } else {
-//                        findNavController().navigate(
-//                            CalendarFragmentDirections
-//                                .actionCalendarFragmentToNoteFragment(database.getNoteWithDate(day)!!.noteId)
-//                        )
-//                    }}
-//            }
-//
-//        })
         cardStackView = binding.cardStackView
         manager = CardStackLayoutManager(context, this).apply {
             setStackFrom(StackFrom.Top)
@@ -180,14 +153,4 @@ class CalendarFragment : Fragment(), CardStackListener {
 
     override fun onCardDisappeared(view: View, position: Int) {
     }
-
-    private suspend fun insert(note: Note) {
-        database.insert(note)
-    }
-
-    suspend fun exists(day: Calendar): Boolean {
-        return database.exists(day)
-    }
-
-
 }

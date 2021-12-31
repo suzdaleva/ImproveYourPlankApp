@@ -126,10 +126,12 @@ class MainActivity : AppCompatActivity() {
 
             override fun onDrawerStateChanged(newState: Int) {
                 if (newState == DrawerLayout.STATE_SETTLING) {
+                    lifecycleScope.launch {
                     if (drawerLayout.isOpen) {
+                        delay(50)
                         menu1.speed=-1.2f
                         menu1.playAnimation()
-                    }
+                    }}
                 }
             }
         })

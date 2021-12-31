@@ -56,7 +56,7 @@
         tools:layout="@layout/fragment_statistics"/>
     <fragment
         android:id="@+id/tutorialsFragment"
-        android:name="com.example.improveyourplank_app.tutorials.TutorialsFragment"
+        android:name="com.example.improveyourplank_app.login.LogFragment"
         android:label="TutorialsFragment"
-        tools:layout="@layout/fragment_tutorials"/>
+        tools:layout="@layout/fragment_log"/>
 </navigation>

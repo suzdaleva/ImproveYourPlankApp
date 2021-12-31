@@ -26,9 +26,6 @@ import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
 
 class TimerFragment : Fragment() {
-    var blurStarted: Boolean = false
-    private lateinit var blurLayout: BlurLayout
-    private var movement = 150f
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
@@ -37,24 +34,6 @@ class TimerFragment : Fragment() {
         Log.i("I/TimerFragment", "Timer fragment created")
         val binding: FragmentTimerBinding =
             DataBindingUtil.inflate(inflater, R.layout.fragment_timer, container, false)
-        blurLayout = binding.blurLayout
-
-        blurLayout.animate().translationY(movement).setDuration(1500)
-            .setListener(object : AnimatorListenerAdapter() {
-                override fun onAnimationEnd(animation: Animator?) {
-                    super.onAnimationEnd(animation)
-                    movement = if (movement > 0) -150F else 150F
-                    blurLayout.animate().translationY(movement).setDuration(1500).setListener(this)
-                        .start()
-                }
-            }).start()
-//            blurLayout.startBlur()
-//        blurLayout.invalidate()
-        lifecycleScope.launch {
-            delay(1)
-            blurLayout.lockView()
-
-        }
 
         val application = requireNotNull(this.activity).application
         val dataSource = WorkoutDatabase.getInstance(application).workoutDatabaseDao
@@ -122,29 +101,7 @@ class TimerFragment : Fragment() {
         timerViewModel.currentTime.observe(viewLifecycleOwner, Observer{
             currentTime ->
 
-            binding.timer.text = DateUtils.formatElapsedTime(currentTime)
-            if (timerViewModel.currentTime.value!! == 1L) {
-                blurLayout.unlockView()
-                lifecycleScope.launch {
-                    for(i in 1..80) {
-                        val params: ConstraintLayout.LayoutParams = blurLayout.layoutParams as ConstraintLayout.LayoutParams
-                        params.setMargins(68, params.topMargin-4, 0, 0)
-                        blurLayout.layoutParams = params
-                        //blurLayout.fps = 60
-                        blurLayout.invalidate()
-                        //blurLayout.blurRadius = 5
-                        blurLayout.startBlur()
-                        delay(1)
-                    }
-                }
-                //blurLayout.fps = 0
-                //blurLayout.lockView()
-            }
-//            blurLayout?.lockView()
-//            blurLayout?.invalidate()
-//            blurLayout?.startBlur()
-
-        })
+            binding.timer.text = DateUtils.formatElapsedTime(currentTime)})
 
         timerViewModel.navigateToWorkoutFeedback.observe(viewLifecycleOwner, Observer { workout ->
             workout?.let {
@@ -156,24 +113,4 @@ class TimerFragment : Fragment() {
         })
         return binding.root
     }
-
-
-
-    override fun onStart(){
-        super.onStart()
-
-//        blurLayout.startBlur()
-//        blurLayout.lockView()
-//        if(!blurStarted) {
-//        blurLayout.startBlur()
-//            blurLayout.lockView()
-//        blurStarted = true
-//        }
-    }
-
-    override fun onStop(){
-        super.onStop()
-        //blurLayout.pauseBlur()
-    }
-
 }

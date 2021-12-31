@@ -1,4 +1,4 @@
-package com.example.improveyourplank_app.tutorials
+package com.example.improveyourplank_app.login
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -7,16 +7,16 @@ import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
 import com.example.improveyourplank_app.R
-import com.example.improveyourplank_app.databinding.FragmentTutorialsBinding
+import com.example.improveyourplank_app.databinding.FragmentLogBinding
 
-class TutorialsFragment : Fragment() {
+class LogFragment : Fragment() {
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        val binding: FragmentTutorialsBinding =
-            DataBindingUtil.inflate(inflater, R.layout.fragment_tutorials, container, false)
+        val binding: FragmentLogBinding =
+            DataBindingUtil.inflate(inflater, R.layout.fragment_log, container, false)
         return binding.root
     }
 }

@@ -99,20 +99,6 @@
             app:layout_constraintTop_toBottomOf="@+id/title" />
 
 
-        <io.alterac.blurkit.BlurLayout
-            android:id="@+id/blurLayout"
-            android:layout_width="215dp"
-            android:layout_height="215dp"
-
-            android:onClick="@{() -> timerViewModel.onLaunch()}"
-            app:blk_blurRadius="2"
-            app:blk_downscaleFactor="0.2"
-            app:blk_fps="60"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            blurkit:blk_cornerRadius="500dp" />
-
-
     </androidx.constraintlayout.widget.ConstraintLayout>
 
 

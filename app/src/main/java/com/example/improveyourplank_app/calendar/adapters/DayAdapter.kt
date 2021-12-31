@@ -27,7 +27,7 @@ class DayAdapter(
     private val calendarProperties: CalendarProperties,
     dates: MutableList<Date>,
     pageMonth: Int,
-    val activity: MainActivity
+    activity: MainActivity
 ) : ArrayAdapter<Date>(context, calendarProperties.itemLayoutResource, dates) {
     val application = activity.application
     val dataSource = WorkoutDatabase.getInstance(application).workoutDatabaseDao
@@ -46,6 +46,10 @@ class DayAdapter(
         val dayLabel = dayView.dayLabel
 
         CoroutineScope(Dispatchers.IO).launch {
+            if (day.isToday && day.get(Calendar.MONTH) == pageMonth) {
+                dayLabel.setBackgroundResource(R.drawable.today_circle)
+                dayLabel.setTextColor(context.parseColor(R.color.black))
+            }
             day.setMidnight()
             val tz: TimeZone = day.timeZone
             val zoneId: ZoneId = tz.toZoneId()
@@ -56,10 +60,6 @@ class DayAdapter(
                     dayLabel.setBackgroundResource(R.drawable.checked_day)
                     dayLabel.setTextColor(context.parseColor(R.color.white))
                 }
-            }
-            if (day.isToday && day.get(Calendar.MONTH) == pageMonth) {
-                dayLabel.setBackgroundResource(R.drawable.today_circle)
-                dayLabel.setTextColor(context.parseColor(R.color.black))
             }
             }
         dayLabel.typeface = ResourcesCompat.getFont(context, R.font.urbanist_bold)
@@ -79,5 +79,4 @@ class DayAdapter(
             && this.before(calendarProperties.minimumDate)
             || calendarProperties.maximumDate != null
             && this.after(calendarProperties.maximumDate))
-
 }
