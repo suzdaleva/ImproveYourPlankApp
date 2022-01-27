@@ -1,31 +1,48 @@
 package com.example.improveyourplank_app.timer
 
-import android.animation.Animator
-import android.animation.AnimatorListenerAdapter
+import android.graphics.drawable.Animatable
+
+import android.graphics.drawable.Drawable
+import android.media.AudioRecord.MetricsConstants.SOURCE
+
+import android.media.MediaPlayer
+import android.os.Build
 import android.os.Bundle
 import android.text.format.DateUtils
 import android.util.Log
-import android.view.LayoutInflater
-import android.view.View
-import android.view.ViewGroup
-import androidx.constraintlayout.widget.ConstraintLayout
-import androidx.core.view.marginTop
+import android.view.*
+import android.widget.ImageView
+import androidx.annotation.RequiresApi
+
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
-import androidx.lifecycle.lifecycleScope
+
 import androidx.navigation.fragment.findNavController
+import com.bumptech.glide.Glide
+import com.bumptech.glide.load.engine.DiskCacheStrategy
+
+import com.bumptech.glide.load.resource.drawable.DrawableTransitionOptions.withCrossFade
+import com.bumptech.glide.load.resource.gif.GifDrawable
+import com.bumptech.glide.request.RequestOptions
+
 import com.example.improveyourplank_app.R
 import com.example.improveyourplank_app.database.WorkoutDatabase
 import com.example.improveyourplank_app.databinding.FragmentTimerBinding
 import com.example.improveyourplank_app.timepicker.CustomTimePicker
-import com.google.android.material.timepicker.MaterialTimePicker
-import io.alterac.blurkit.BlurLayout
-import kotlinx.coroutines.delay
-import kotlinx.coroutines.launch
+
+import kotlinx.coroutines.*
+
 
 class TimerFragment : Fragment() {
+
+    private lateinit var timerDrawable: ImageView
+    private  lateinit var drawable: Drawable
+    var isTimerStarted = false
+    private lateinit var mediaPlayer : MediaPlayer
+
+    @RequiresApi(Build.VERSION_CODES.P)
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
@@ -48,6 +65,79 @@ class TimerFragment : Fragment() {
         binding.timerViewModel = timerViewModel
 
         binding.lifecycleOwner = this
+//        Log.i("Test", "Got here")
+//        binding.timerAnimation.surfaceTextureListener =  object : TextureView.SurfaceTextureListener {
+//            override fun onSurfaceTextureAvailable( surface: SurfaceTexture, width: Int, height: Int
+//            ) {
+//                Log.i("Test", "Got  1 here")
+//                val surface = Surface(surface)
+//                Log.i("Test", "Got 2 here")
+//                val assetFileDescriptor: AssetFileDescriptor = context!!.assets!!.openFd("timer_animation.gif")
+//                mediaPlayer = MediaPlayer()
+//                Log.i("Test", "Got here")
+//                mediaPlayer.setDataSource(assetFileDescriptor.fileDescriptor, assetFileDescriptor.startOffset, assetFileDescriptor.length)
+//                Log.i("Test", "And even here")
+//                mediaPlayer.setSurface(surface)
+//                mediaPlayer.isLooping = true
+//                mediaPlayer.prepareAsync()
+//                mediaPlayer.setOnPreparedListener(object: MediaPlayer.OnPreparedListener {
+//                    override fun onPrepared(mp: MediaPlayer?) {
+//                        //mediaPlayer.stop()
+//                    }
+//
+//                })
+//
+//            }
+//
+//            override fun onSurfaceTextureSizeChanged(surface: SurfaceTexture, width: Int, height: Int) {
+//                TODO("Not yet implemented")
+//            }
+//
+//            override fun onSurfaceTextureDestroyed(surface: SurfaceTexture): Boolean {
+//                return false
+//            }
+//
+//            override fun onSurfaceTextureUpdated(surface: SurfaceTexture) {
+//                TODO("Not yet implemented")
+//            }
+//        }
+//        val assets = context?.assets
+//        val assetFileName = "timer_animation.gif"
+//        //val source = ImageDecoder.createSource(assets!!, assetFileName)
+//        val listener = ImageDecoder.OnHeaderDecodedListener { decoder,_,_ ->
+//            decoder.setOnPartialImageListener { decodeException ->
+//                true
+//            }
+//        }
+//
+//        GlobalScope.launch(Dispatchers.Default) {
+//            // worker thread
+//            val source = ImageDecoder.createSource(assets!!, assetFileName)
+//            val drawable = ImageDecoder.decodeDrawable(source, listener)
+//            GlobalScope.launch(Dispatchers.Main) {
+//                // UI thread
+//                binding.timerAnimation.setImageDrawable(drawable)
+//                if (drawable is AnimatedImageDrawable) {
+//                    drawable.start()
+//                }
+//            }
+//        }
+//        val drawable = ImageDecoder.decodeDrawable(source)
+//        binding.timerAnimation.setImageDrawable(drawable)
+//        if (drawable is AnimatedImageDrawable) {
+//            drawable.start()
+//        }
+        //timerDrawable = binding.timerAnimation.drawable as GifDrawable
+        timerDrawable = binding.timerAnimation
+
+        binding.title.setOnClickListener {
+            //Glide.with(this).clear(timerDrawable)
+            drawable = timerDrawable.drawable as GifDrawable
+            (drawable as Animatable).stop()
+        }
+//        Glide.with(this).asGif()
+//            .load(R.drawable.timer_animation)
+//            .into(timerDrawable)
 
         timerViewModel.isTargetTimeSet.observe(viewLifecycleOwner, Observer {
 
@@ -100,7 +190,16 @@ class TimerFragment : Fragment() {
 
         timerViewModel.currentTime.observe(viewLifecycleOwner, Observer{
             currentTime ->
+            if(binding.timer.text == "00:01") {
+                Glide.with(this).asGif()
+                    .load(R.drawable.timer_animation)
+                    .diskCacheStrategy(DiskCacheStrategy.RESOURCE)
+                    .into(timerDrawable)
 
+
+
+                    //isTimerStarted = true
+            }
             binding.timer.text = DateUtils.formatElapsedTime(currentTime)})
 
         timerViewModel.navigateToWorkoutFeedback.observe(viewLifecycleOwner, Observer { workout ->
@@ -113,4 +212,5 @@ class TimerFragment : Fragment() {
         })
         return binding.root
     }
+
 }

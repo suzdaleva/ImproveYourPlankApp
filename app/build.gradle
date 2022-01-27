@@ -80,6 +80,8 @@ dependencies {
     implementation "org.jetbrains.kotlinx:kotlinx-coroutines-core:$coroutine_version"
     implementation "org.jetbrains.kotlinx:kotlinx-coroutines-android:$coroutine_version"
     implementation "io.alterac.blurkit:blurkit:1.1.0"
+    implementation "com.github.bumptech.glide:glide:4.11.0"
+    annotationProcessor "com.github.bumptech.glide:compiler:4.11.0"
 
     // Navigation
     implementation "android.arch.navigation:navigation-fragment-ktx:$navigationVersion"
@@ -92,4 +94,7 @@ dependencies {
     implementation "org.jetbrains.kotlinx:kotlinx-serialization-core:1.0.1"
     implementation "org.jetbrains.kotlinx:kotlinx-serialization-json:1.0.1"
     implementation "com.yuyakaido.android:card-stack-view:2.3.4"
+
+    implementation 'pl.droidsonroids.gif:android-gif-drawable:1.2.24'
+
 }
